@@ -4,6 +4,7 @@ import './index.scss';
 
 import App from './App';
 
+import {provider} from 'react-redux';
 import { UserProvider } from './contexts/user.context';
 import { CategoriesProvider } from './contexts/categories.context';
 import { CartProvider } from './contexts/cart.context';
@@ -11,11 +12,13 @@ import { CartProvider } from './contexts/cart.context';
 import reportWebVitals from './reportWebVitals';
 
 import { BrowserRouter } from 'react-router-dom';
+import {store} from './store/store'
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <provider store={store}>
     <BrowserRouter>
       <UserProvider>
         <CategoriesProvider>
@@ -25,6 +28,7 @@ root.render(
         </CategoriesProvider>
       </UserProvider>
     </BrowserRouter>
+    </provider>
   </React.StrictMode>
 );
 
